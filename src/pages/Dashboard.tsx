@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Layout from '../components/Layout';
 import { Task } from '../types';
@@ -8,15 +8,36 @@ import { CheckCircle, Clock, Star } from 'lucide-react';
 import './Dashboard.css';
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
+  const { user, refreshUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [pendingTasks, setPendingTasks] = useState<Task[]>([]);
   const [pendingCount, setPendingCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadPendingTasks();
+    
+    // Listen for task completion events
+    const handleTaskCompleted = () => {
+      loadPendingTasks();
+      refreshUser(); // Refresh user points
+    };
+    
+    window.addEventListener('taskCompleted', handleTaskCompleted);
+    
+    return () => {
+      window.removeEventListener('taskCompleted', handleTaskCompleted);
+    };
   }, []);
+
+  // Reload when navigating back to dashboard
+  useEffect(() => {
+    if (location.pathname === '/') {
+      loadPendingTasks();
+      refreshUser();
+    }
+  }, [location.pathname]);
 
   const loadPendingTasks = async () => {
     try {

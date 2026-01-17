@@ -54,7 +54,11 @@ const Tasks: React.FC = () => {
     try {
       const completedTask = await api.completeTask(taskId);
       await loadTasks();
+      await loadTaskLogs(); // Reload logs as well
       await refreshUser();
+      
+      // Dispatch event to notify Dashboard
+      window.dispatchEvent(new CustomEvent('taskCompleted'));
       
       // Show success message with recurrence info
       let message = `✨ Tarefa completada! +${completedTask.points} pontos`;
