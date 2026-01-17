@@ -21,7 +21,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Helper function to get full image URL
   const getImageUrl = (url?: string) => {
     if (!url) return '';
-    if (url.startsWith('http')) return url; // Already absolute
+    // Data URLs (base64 images) should be used as-is
+    if (url.startsWith('data:')) return url;
+    // Already absolute HTTP/HTTPS URLs
+    if (url.startsWith('http')) return url;
+    
     const apiUrl = import.meta.env.VITE_API_URL || '';
     if (!apiUrl) return url;
     
