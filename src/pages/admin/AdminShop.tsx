@@ -16,7 +16,17 @@ const AdminShop: React.FC = () => {
     if (!url) return '';
     if (url.startsWith('http')) return url; // Already absolute
     const apiUrl = import.meta.env.VITE_API_URL || '';
-    return apiUrl ? `${apiUrl}${url.startsWith('/') ? '' : '/'}${url}` : url;
+    if (!apiUrl) return url;
+    
+    // Remove /api prefix from url if it exists (backend returns /api/files/...)
+    let cleanUrl = url.startsWith('/api/') ? url.substring(4) : url;
+    // Ensure url starts with /
+    cleanUrl = cleanUrl.startsWith('/') ? cleanUrl : '/' + cleanUrl;
+    
+    // Remove trailing /api from apiUrl if exists
+    const cleanApiUrl = apiUrl.replace(/\/api\/?$/, '');
+    
+    return `${cleanApiUrl}${cleanUrl}`;
   };
   
   const [items, setItems] = useState<ShopItem[]>([]);
