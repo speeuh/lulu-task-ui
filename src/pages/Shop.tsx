@@ -19,15 +19,26 @@ const Shop: React.FC = () => {
     const apiUrl = import.meta.env.VITE_API_URL || '';
     if (!apiUrl) return url;
     
-    // Remove /api prefix from url if it exists (backend returns /api/files/...)
-    let cleanUrl = url.startsWith('/api/') ? url.substring(4) : url;
     // Ensure url starts with /
-    cleanUrl = cleanUrl.startsWith('/') ? cleanUrl : '/' + cleanUrl;
+    let cleanUrl = url.startsWith('/') ? url : '/' + url;
     
-    // Remove trailing /api from apiUrl if exists
-    const cleanApiUrl = apiUrl.replace(/\/api\/?$/, '');
-    
-    return `${cleanApiUrl}${cleanUrl}`;
+    // If VITE_API_URL already ends with /api, remove /api prefix from url if present
+    if (apiUrl.endsWith('/api')) {
+      // VITE_API_URL = https://domain.com/api
+      // url = /api/files/... -> remove /api prefix -> /files/...
+      if (cleanUrl.startsWith('/api/')) {
+        cleanUrl = cleanUrl.substring(4); // Remove '/api'
+      }
+      return `${apiUrl}${cleanUrl}`;
+    } else {
+      // VITE_API_URL = https://domain.com (no /api)
+      // url = /api/files/... or /files/...
+      // Need to ensure /api is in the path
+      if (!cleanUrl.startsWith('/api/')) {
+        cleanUrl = '/api' + cleanUrl;
+      }
+      return `${apiUrl}${cleanUrl}`;
+    }
   };
   
   const [items, setItems] = useState<ShopItem[]>([]);
