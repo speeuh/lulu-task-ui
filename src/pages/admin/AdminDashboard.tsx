@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout';
-import { ListTodo, ShoppingBag, Settings } from 'lucide-react';
+import { ListTodo, ShoppingBag } from 'lucide-react';
 import './AdminDashboard.css';
 
 const AdminDashboard: React.FC = () => {

@@ -38,7 +38,7 @@ const ImageCropModal: React.FC<ImageCropModalProps> = ({
   };
 
   const onCropAreaChange = useCallback(
-    (croppedArea: Area, croppedAreaPixels: Area) => {
+    (_croppedArea: Area, croppedAreaPixels: Area) => {
       setCroppedAreaPixels(croppedAreaPixels);
     },
     []
