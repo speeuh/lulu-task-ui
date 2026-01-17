@@ -13,6 +13,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const { user, logout, isAdmin } = useAuth();
 
+  // Helper function to get full image URL
+  const getImageUrl = (url?: string) => {
+    if (!url) return '';
+    if (url.startsWith('http')) return url; // Already absolute
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    return apiUrl ? `${apiUrl}${url.startsWith('/') ? '' : '/'}${url}` : url;
+  };
+
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -43,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="user-info">
               {user?.profileImageUrl && (
                 <img
-                  src={user.profileImageUrl}
+                  src={getImageUrl(user.profileImageUrl)}
                   alt={user.fullName}
                   className="user-avatar"
                 />

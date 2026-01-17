@@ -11,6 +11,15 @@ import './Shop.css';
 const Shop: React.FC = () => {
   const { user, refreshUser } = useAuth();
   const toast = useToast();
+  
+  // Helper function to get full image URL
+  const getImageUrl = (url?: string) => {
+    if (!url) return '';
+    if (url.startsWith('http')) return url; // Already absolute
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    return apiUrl ? `${apiUrl}${url.startsWith('/') ? '' : '/'}${url}` : url;
+  };
+  
   const [items, setItems] = useState<ShopItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [redeemingItemId, setRedeemingItemId] = useState<number | null>(null);
@@ -102,7 +111,7 @@ const Shop: React.FC = () => {
                 >
                   {item.imageUrl ? (
                     <div className="item-image">
-                      <img src={item.imageUrl} alt={item.name} />
+                      <img src={getImageUrl(item.imageUrl)} alt={item.name} />
                     </div>
                   ) : (
                     <div className="item-image placeholder">

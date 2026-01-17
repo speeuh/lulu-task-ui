@@ -10,6 +10,15 @@ import './AdminTasks.css';
 
 const AdminShop: React.FC = () => {
   const toast = useToast();
+  
+  // Helper function to get full image URL
+  const getImageUrl = (url?: string) => {
+    if (!url) return '';
+    if (url.startsWith('http')) return url; // Already absolute
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    return apiUrl ? `${apiUrl}${url.startsWith('/') ? '' : '/'}${url}` : url;
+  };
+  
   const [items, setItems] = useState<ShopItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -135,7 +144,7 @@ const AdminShop: React.FC = () => {
               <div key={item.id} className="admin-item-card shop">
                 {item.imageUrl ? (
                   <div className="item-preview">
-                    <img src={item.imageUrl} alt={item.name} />
+                    <img src={getImageUrl(item.imageUrl)} alt={item.name} />
                   </div>
                 ) : (
                   <div className="item-preview placeholder">
@@ -212,7 +221,7 @@ const AdminShop: React.FC = () => {
                 <div className="form-group">
                   <label>Imagem do Item</label>
                   <ImageUpload
-                    currentImage={formData.imageUrl}
+                    currentImage={getImageUrl(formData.imageUrl)}
                     onImageUploaded={(imageUrl) => setFormData({ ...formData, imageUrl })}
                     label="Escolher Imagem do Item"
                     circular={false}

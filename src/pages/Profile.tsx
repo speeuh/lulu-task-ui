@@ -11,6 +11,15 @@ import './Profile.css';
 const Profile: React.FC = () => {
   const { user, refreshUser } = useAuth();
   const toast = useToast();
+  
+  // Helper function to get full image URL
+  const getImageUrl = (url?: string) => {
+    if (!url) return '';
+    if (url.startsWith('http')) return url; // Already absolute
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    return apiUrl ? `${apiUrl}${url.startsWith('/') ? '' : '/'}${url}` : url;
+  };
+  
   const [profileImageUrl, setProfileImageUrl] = useState(user?.profileImageUrl || '');
   const [fullName, setFullName] = useState(user?.fullName || '');
   const [editingName, setEditingName] = useState(false);
@@ -124,7 +133,7 @@ const Profile: React.FC = () => {
             <div className="profile-grid">
               <div className="profile-photo-section">
                 <ImageUpload
-                  currentImage={profileImageUrl}
+                  currentImage={getImageUrl(profileImageUrl)}
                   onImageUploaded={handleImageUploaded}
                   label="Escolher Foto"
                   circular={true}
