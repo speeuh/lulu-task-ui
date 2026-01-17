@@ -12,9 +12,8 @@ import type {
   ShopItemRequest,
 } from '../types';
 
-// Use variável de ambiente em produção, localhost em desenvolvimento
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: '/api',
 });
 
 // Add token to requests
