@@ -52,8 +52,8 @@ const Login: React.FC = () => {
     <div className="login-page">
       <div className="login-container">
         <div className="login-card">
-          <h1 className="login-title">✨ Luiza Tasks</h1>
-          <p className="login-subtitle">Sistema de Tarefas e Recompensas</p>
+          <h1 className="login-title">✨ Tarefas da Lulu</h1>
+          <p className="login-subtitle">Sistema de Tarefas e Recompensas do meu amor!</p>
 
           <form onSubmit={handleSubmit} className="login-form">
             {error && <div className="error-message">{error}</div>}

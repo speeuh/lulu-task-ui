@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Home, ListTodo, ShoppingBag, History, User, LogOut, Settings } from 'lucide-react';
@@ -12,6 +12,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout, isAdmin } = useAuth();
+
+  // Update page title dynamically
+  useEffect(() => {
+    document.title = `✨ Tarefas da ${user?.fullName || 'Lulu'}`;
+  }, [user?.fullName]);
 
   // Helper function to get full image URL
   const getImageUrl = (url?: string) => {
