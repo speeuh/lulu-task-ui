@@ -11,6 +11,7 @@ const Dashboard: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [pendingTasks, setPendingTasks] = useState<Task[]>([]);
+  const [pendingCount, setPendingCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,7 +21,8 @@ const Dashboard: React.FC = () => {
   const loadPendingTasks = async () => {
     try {
       const tasks = await api.getPendingTasks();
-      setPendingTasks(tasks.slice(0, 3)); // Show only first 3
+      setPendingCount(tasks.length); // Total count
+      setPendingTasks(tasks.slice(0, 3)); // Show only first 3 for preview
     } catch (error) {
       console.error('Failed to load tasks:', error);
     } finally {
@@ -52,7 +54,7 @@ const Dashboard: React.FC = () => {
               <Clock size={28} />
             </div>
             <div className="stat-content">
-              <h3>{pendingTasks.length}</h3>
+              <h3>{pendingCount}</h3>
               <p>Tarefas Pendentes</p>
             </div>
           </div>

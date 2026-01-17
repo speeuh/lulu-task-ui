@@ -45,8 +45,8 @@ const RedemptionHistory: React.FC = () => {
       <div className="history-page">
         <div className="history-header">
           <div>
-            <h1>🎁 Histórico de Resgates</h1>
-            <p>Veja todos os itens que você resgatou</p>
+            <h1>🎁 Histórico da Lojinha</h1>
+            <p>Itens resgatados da Lulu!</p>
           </div>
           <div className="total-spent">
             <TrendingDown size={24} />

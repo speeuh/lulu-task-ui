@@ -46,7 +46,7 @@ const TaskHistory: React.FC = () => {
         <div className="history-header">
           <div>
             <h1>📜 Meu Histórico de Tarefas</h1>
-            <p>Veja todas as tarefas que você completou</p>
+            <p>A mãe tá no foco! 💪</p>
           </div>
           <div className="total-earned">
             <TrendingUp size={24} />
