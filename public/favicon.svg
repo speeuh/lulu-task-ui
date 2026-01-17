@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Apple body -->
+  <path d="M50 15 
+           C40 12, 28 16, 22 25 
+           C18 32, 16 40, 18 48 
+           C15 52, 14 58, 16 64 
+           C16 74, 24 82, 34 84 
+           C42 86, 50 86, 58 84 
+           C68 82, 76 74, 76 64 
+           C78 58, 77 52, 74 48 
+           C76 40, 74 32, 70 25 
+           C64 16, 52 12, 50 15 Z" 
+        fill="#FF4444" 
+        stroke="#CC0000" 
+        stroke-width="1"/>
+  
+  <!-- Apple highlight (glossy effect) -->
+  <ellipse cx="38" cy="32" rx="12" ry="18" fill="#FF8888" opacity="0.6"/>
+  <ellipse cx="35" cy="28" rx="6" ry="10" fill="#FFCCCC" opacity="0.8"/>
+  
+  <!-- Stem (brown) -->
+  <rect x="48" y="12" width="4" height="6" rx="2" fill="#8B4513"/>
+  
+  <!-- Leaf (green) -->
+  <path d="M52 12 
+           C54 10, 56 10, 58 12 
+           C60 14, 59 17, 57 19 
+           C55 18, 53 16, 52 12 Z" 
+        fill="#7CB342" 
+        stroke="#5D8C3A" 
+        stroke-width="0.5"/>
+</svg>

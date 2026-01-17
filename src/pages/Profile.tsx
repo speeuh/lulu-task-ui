@@ -24,9 +24,9 @@ const Profile: React.FC = () => {
   const [fullName, setFullName] = useState(user?.fullName || '');
   const [editingName, setEditingName] = useState(false);
   const [themeValue, setThemeValue] = useState(
-    user?.themeValue && user.themeValue.startsWith('#') ? user.themeValue : '#FF9B8A'
+    user?.themeValue && user.themeValue.startsWith('#') ? user.themeValue : '#90CAF9'
   );
-  const [buttonColor, setButtonColor] = useState(user?.buttonColor || '#FF9B8A');
+  const [buttonColor, setButtonColor] = useState(user?.buttonColor || '#81D4FA');
   const [saving, setSaving] = useState(false);
 
   const handleImageUploaded = async (url: string) => {
@@ -71,7 +71,7 @@ const Profile: React.FC = () => {
     try {
       await api.updateSettings({ 
         themeType: ThemeType.COLOR, 
-        themeValue: themeValue.startsWith('#') ? themeValue : '#FF9B8A', 
+        themeValue: themeValue.startsWith('#') ? themeValue : '#90CAF9', 
         buttonColor 
       });
       await refreshUser();

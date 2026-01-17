@@ -28,7 +28,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const root = document.documentElement;
 
     // Apply background color (always solid color now)
-    const bgColor = user.themeValue && user.themeValue.startsWith('#') ? user.themeValue : '#FF9B8A';
+    const bgColor = user.themeValue && user.themeValue.startsWith('#') ? user.themeValue : '#90CAF9';
     root.style.background = bgColor;
     root.style.backgroundImage = 'none';
 
