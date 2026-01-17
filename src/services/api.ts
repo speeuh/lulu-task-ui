@@ -20,33 +20,11 @@ const api = axios.create({
 // Add token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
-  console.log('🔑 API Request:', config.url);
-  console.log('🔑 Token exists:', !!token);
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
-    console.log('🔑 Authorization header set:', `Bearer ${token.substring(0, 20)}...`);
-  } else {
-    console.warn('⚠️ No token found in localStorage');
   }
   return config;
 });
-
-// Handle 403 errors (Forbidden)
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 403) {
-      console.error('❌ 403 Forbidden - Insufficient permissions');
-      console.error('Request URL:', error.config?.url);
-      console.error('Request Method:', error.config?.method);
-      console.error('Authorization header sent:', !!error.config?.headers?.Authorization);
-      if (error.config?.headers?.Authorization) {
-        console.error('Token preview:', error.config.headers.Authorization.substring(0, 30) + '...');
-      }
-    }
-    return Promise.reject(error);
-  }
-);
 
 // Auth
 export const login = async (data: LoginRequest): Promise<AuthResponse> => {
