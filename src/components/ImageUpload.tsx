@@ -85,7 +85,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('/api/files/upload', {
+      const apiUrl = import.meta.env.VITE_API_URL || '/api';
+      const response = await fetch(`${apiUrl}/files/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
