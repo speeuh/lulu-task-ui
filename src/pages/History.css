@@ -1,0 +1,262 @@
+.history-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.history-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.history-header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.history-header p {
+  margin: 0;
+  color: #666;
+  font-size: 1.05rem;
+}
+
+.total-earned,
+.total-spent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.total-earned {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.total-spent {
+  background: linear-gradient(135deg, #FF9B8A, #FF7A66);
+}
+
+.total-earned svg,
+.total-spent svg {
+  flex-shrink: 0;
+}
+
+.total-earned > div,
+.total-spent > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.total-earned .label,
+.total-spent .label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.total-earned .value,
+.total-spent .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.history-stats .stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.75rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.history-stats .stat-card svg {
+  color: #FF9B8A;
+}
+
+.history-stats .stat-card h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.history-stats .stat-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.history-list {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.2s;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+
+.item-icon.earned {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.item-icon.spent {
+  background: linear-gradient(135deg, #FF9B8A, #FF7A66);
+}
+
+.item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.item-meta .date,
+.item-meta .time {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.item-points {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.item-points.earned {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+}
+
+.item-points.spent {
+  background: linear-gradient(135deg, #FF9B8A, #FF7A66);
+  color: white;
+}
+
+.item-points svg {
+  color: white;
+}
+
+.loading-state,
+.empty-history {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  color: #999;
+}
+
+.empty-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-history svg {
+  color: #ddd;
+}
+
+.empty-history h3 {
+  margin: 0;
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.empty-history p {
+  margin: 0;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-content h4 {
+    white-space: normal;
+  }
+
+  .item-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+

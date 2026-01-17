@@ -1,0 +1,263 @@
+/* Global button styles using CSS variables */
+
+/* Fallback for older browsers */
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+  .nav-item:hover {
+    background: rgba(255, 155, 138, 0.1) !important;
+  }
+  
+  .filters button:hover {
+    background: rgba(255, 155, 138, 0.1) !important;
+  }
+  
+  .upload-button:hover:not(:disabled) {
+    background: rgba(255, 155, 138, 0.05) !important;
+  }
+}
+
+/* Modern browsers with color-mix support */
+
+/* ===== LAYOUT & NAVIGATION ===== */
+
+/* App title */
+.app-title {
+  color: var(--button-color) !important;
+}
+
+/* User avatar border */
+.user-avatar {
+  border-color: var(--button-color) !important;
+}
+
+/* User points in header */
+.user-points {
+  color: var(--button-color) !important;
+}
+
+/* Logout button hover */
+.logout-button:hover {
+  background: var(--button-color) !important;
+}
+
+/* Navigation items */
+.nav-item:hover {
+  background: color-mix(in srgb, var(--button-color) 10%, transparent) !important;
+  color: var(--button-color) !important;
+}
+
+.nav-item.active {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.nav-item.active:hover {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* ===== TASKS PAGE ===== */
+
+/* Stats icons */
+.tasks-stats .stat svg {
+  color: var(--button-color) !important;
+}
+
+/* Filter buttons */
+.filters button:hover {
+  background: color-mix(in srgb, var(--button-color) 10%, transparent) !important;
+  color: var(--button-color) !important;
+}
+
+.filters button.active {
+  background: var(--button-color) !important;
+  border-color: var(--button-color) !important;
+  color: white !important;
+}
+
+.filters button.active:hover {
+  background: var(--button-hover-color) !important;
+  border-color: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* Task card hover */
+.task-card:hover:not(.completed) {
+  border-color: var(--button-color) !important;
+}
+
+/* Complete button */
+.complete-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.complete-button:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* ===== SHOP PAGE ===== */
+
+/* Shop card hover */
+.shop-item-card:not(.locked):hover {
+  border-color: var(--button-color) !important;
+}
+
+/* Redeem button */
+.redeem-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.redeem-button:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* ===== PROFILE PAGE ===== */
+
+/* Section titles */
+.section-title {
+  color: var(--button-color) !important;
+}
+
+/* User points display */
+.user-points-display {
+  background: linear-gradient(135deg, var(--button-color), var(--button-hover-color)) !important;
+}
+
+/* Save button */
+.save-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.save-button:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* Color preset active */
+.color-preset.active {
+  border-color: var(--button-color) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--button-color) 30%, transparent) !important;
+}
+
+/* View all button (Dashboard) */
+.view-all-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.view-all-button:hover {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* ===== ADMIN PAGES ===== */
+
+/* Add button */
+.add-button,
+button[type="submit"] {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.add-button:hover:not(:disabled),
+button[type="submit"]:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+/* Login page background */
+.login-page {
+  background: linear-gradient(135deg, var(--button-color) 0%, color-mix(in srgb, var(--button-color) 80%, white) 100%) !important;
+}
+
+/* Login title */
+.login-title {
+  color: var(--button-color) !important;
+}
+
+/* Login input focus */
+.form-group input:focus {
+  border-color: var(--button-color) !important;
+}
+
+/* Checkbox accent */
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--button-color) !important;
+}
+
+/* Login info strong */
+.login-info strong {
+  color: var(--button-color) !important;
+}
+
+/* Login button */
+.login-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.login-button:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--button-color) 30%, transparent) !important;
+}
+
+/* ===== COMPONENTS ===== */
+
+/* Upload button hover */
+.upload-button:hover:not(:disabled) {
+  border-color: var(--button-color) !important;
+  background: color-mix(in srgb, var(--button-color) 5%, transparent) !important;
+  color: var(--button-color) !important;
+}
+
+/* Image preview border (circular) */
+.image-preview.circular {
+  border-color: var(--button-color) !important;
+}
+
+/* Crop confirm button */
+.crop-confirm-btn {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.crop-confirm-btn:hover {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
+/* Crop slider thumb */
+.zoom-control input[type="range"]::-webkit-slider-thumb {
+  background: var(--button-color) !important;
+}
+
+.zoom-control input[type="range"]::-moz-range-thumb {
+  background: var(--button-color) !important;
+}
+
+.zoom-control input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--button-color) 10%, transparent) !important;
+}
+
+.zoom-control input[type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--button-color) 10%, transparent) !important;
+}
+
+/* Pagination buttons */
+.pagination-button {
+  background: var(--button-color) !important;
+  color: white !important;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: var(--button-hover-color) !important;
+  color: white !important;
+}
+
